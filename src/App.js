@@ -1,24 +1,20 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import { Routes } from './routes';
 
 function App() {
+  const [currentRoute,setCurrentRoute] = useState("date-current");
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <nav>
+        <ul>
+          <li><a onClick={() => setCurrentRoute("date-current")}>Exercício 1</a></li>
+          <li><a onClick={()=> setCurrentRoute("sign")}>Exercício 2</a></li>
+        </ul>
+      </nav>
+      <Routes route={currentRoute}/>
+    </>
   );
 }
 
