@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const text = 'Venha estudar na Fatec.';
 
-export function Sign(){
+export default function Sign(){
     const [displayedText, setDisplayedText] = useState("");
 
     const showText = (phrase, time) => setTimeout(() => {
