@@ -5,4 +5,4 @@
 
 > Projeto da faculdade com foco em aprender e entender o ReactJs
 > 
-> Quer ver como ta ficando? Acessa a [**DEMO**]([https://pokedex.omariosouto.now.sh/](https://laboratorio-react-js.vercel.app/))
+> Quer ver como ta ficando? Acessa a [**DEMO**](https://laboratorio-react-js.vercel.app/)
