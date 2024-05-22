@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
-import DataCurrent from '../pages/dateCurrent';
-import Sign from '../pages/sign';
+import SignDateCurrent from '../pages/sign-dateCurrent';
 import CounterPeople from '../pages/counterPeople';
+import Activity3 from '../pages/activity-3';
 
 export default function AppRoutes(){
     return (
@@ -16,10 +16,10 @@ export default function AppRoutes(){
                     </ul>
                 </nav>
                 <Routes>
-                    <Route path='/' element={<DataCurrent/>} />
-                    <Route path='/exercicio-1' element={<DataCurrent/>} />
-                    <Route path='/exercicio-2' element={<Sign/>} />
-                    <Route path='/exercicio-3' element={<CounterPeople/>} />
+                    <Route path='/' element={<SignDateCurrent/>} />
+                    <Route path='/exercicio-1' element={<SignDateCurrent/>} />
+                    <Route path='/exercicio-2' element={<CounterPeople/>} />
+                    <Route path='/exercicio-3' element={<Activity3/>} />
                 </Routes>
             </>
         </BrowserRouter>

@@ -2,7 +2,21 @@ import { useEffect, useState } from "react";
 
 const text = 'Venha estudar na Fatec.';
 
-export default function Sign(){
+function DateCurrent(){
+    const [date,SetDate] = useState(new Date());
+
+    useEffect(() => {
+        setTimeout(() => {
+            SetDate(new Date());
+        }, 1000);
+    }, [date]);
+
+    return (
+        <>{date.toLocaleDateString()} {date.toLocaleTimeString()}</>
+    );
+}
+
+function Sign(){
     const [displayedText, setDisplayedText] = useState("");
 
     const showText = (phrase, time) => setTimeout(() => {
@@ -18,4 +32,13 @@ export default function Sign(){
     }, []);
 
     return <h1>{displayedText}</h1>;
+}
+
+export default function SignDateCurrent(){
+    return (
+        <>
+            <DateCurrent/>
+            <Sign/>
+        </>
+    );
 }
