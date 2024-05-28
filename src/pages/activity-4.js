@@ -35,6 +35,15 @@ export default function Activity4(){
             <h2>List 2</h2>
             <List2/>
             <hr/>
+            <h2>Shape Editor</h2>
+            <ShapeEditor/>
+            <hr/>
+            <h2>Counter List</h2>
+            <CounterList/>
+            <hr/>
+            <h2>Bucket List</h2>
+            <BucketList/>
+            <hr/>
         </Container>
     );
 }
@@ -202,7 +211,11 @@ function List2(){
     const [list,setList] = useState([]);
 
     const handleAddList = () => {
-        setList([...list,input])
+        setList([...list,{guid:crypto.randomUUID(),value:input}])
+    }
+
+    const handleRemoveList = (guid) => {
+        setList([...list.filter(item => item.guid !== guid)]);
     }
 
     return (
@@ -220,10 +233,64 @@ function List2(){
             <ListGroup>
                 {
                     list.map(item => 
-                        <ListGroup.Item>{item}</ListGroup.Item>
+                        <ListGroup.Item><Button variant='danger' onClick={() => handleRemoveList(item.guid)}>Remover</Button> {item.value}</ListGroup.Item>
                     )
                 }
             </ListGroup>
+        </Container>
+    )
+}
+
+function ShapeEditor(){
+    const [x,setx] = useState(10);
+
+    return (
+        <Container>
+            <Container style={{border:'1px solid gray',backgroundColor:'lightgray',position:"relative",padding:0,height:200}}>
+                <Container style={{backgroundColor:"red",height:20,width:20,padding:0,borderRadius:40,top:50,position:'absolute',left:x}}/>
+                <Container style={{backgroundColor:"red",height:20,width:20,padding:0,borderRadius:40,top:25,position:'absolute',left:x}}/>
+            </Container>
+            <Button onClick={() => setx(prev => prev + 25)}>
+                Move
+            </Button>
+        </Container>
+    )
+}
+
+function CounterList(){
+
+    return (
+        <Container>
+            <Counter/>
+            <Counter/>
+            <Counter/>
+        </Container>
+    );
+}
+
+function BucketList(){
+    return (
+        <Container>
+            <h3>Art Bucket List</h3>
+            <h4>My list of art to see</h4>
+            <Form>
+                <ul>
+                    <li>
+                        <Form.Check
+                            type='checkbox'
+                            label='- Big Belles'
+                        />
+                        <Form.Check
+                            type='checkbox'
+                            label='- Big'
+                        />
+                        <Form.Check
+                            type='checkbox'
+                            label='- Terracota'
+                        />
+                    </li>
+                </ul>
+            </Form>
         </Container>
     )
 }
